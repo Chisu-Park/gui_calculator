@@ -1,47 +1,54 @@
-## Contributing
+# Contributing to Transcriptase
+We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
-First off, thank you for considering contributing to GUI-CALCULATOR. It's people
-like you that make GUI-CALCULATOR such a great tool.
+- Reporting a bug
+- Discussing the current state of the code
+- Submitting a fix
+- Proposing new features
+- Becoming a maintainer
 
-### Where do I go from here?
+## We Develop with Github
+We use github to host code, to track issues and feature requests, as well as accept pull requests.
 
-If you've noticed a bug or have a feature request, [make one][new issue]! It's
-generally best if you get confirmation of your bug or approval for your feature
-request this way before starting to code.
+## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
+Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
 
-If you have a general question about activeadmin, you can post it on [Stack
-Overflow], the issue tracker is only for bugs and feature requests.
+1. Fork the repo and create your branch from `master`.
+2. If you've added code that should be tested, add tests.
+3. If you've changed APIs, update the documentation.
+4. Ensure the test suite passes.
+5. Make sure your code lints.
+6. Issue that pull request!
 
-### Fork & create a branch
+## Any contributions you make will be under the MIT Software License
+In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-If this is something you think you can fix, then [fork GUI-CALCULATOR] and create
-a branch with a descriptive name.
+## Report bugs using Github's [issues](https://github.com/briandk/transcriptase-atom/issues)
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
 
-### View your changes in a Rails application
+## Write bug reports with detail, background, and sample code
+[This is an example](http://stackoverflow.com/q/12488905/180626) of a bug report I wrote, and I think it's not a bad model. Here's [another example from Craig Hockenberry](http://www.openradar.me/11905408), an app developer whom I greatly respect.
 
-GUI-CALCULATOR is meant to be used by humans, not cucumbers. So make sure to take
-a look at your changes in a browser.
+**Great Bug Reports** tend to have:
 
-### Shipping a release (maintainers only)
+- A quick summary and/or background
+- Steps to reproduce
+  - Be specific!
+  - Give sample code if you can. [My stackoverflow question](http://stackoverflow.com/q/12488905/180626) includes sample code that *anyone* with a base R setup can run to reproduce what I was seeing
+- What you expected would happen
+- What actually happens
+- Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
 
-Maintainers need to do the following to push out a release:
+People *love* thorough bug reports. I'm not even kidding.
 
-* Switch to the master branch and make sure it's up to date.
-* Make sure you have [chandler] properly configured. Chandler is used to
-  automatically submit github release notes from the changelog right after
-  pushing the gem to rubygems.
-* Run one of `bin/rake release:prepare_{prerelease,prepatch,patch,preminor,minor,premajor,major}`, push the result and create a PR.
-* Review and merge the PR. The generated changelog in the PR should include all user visible changes you intend to ship.
-* Run `bin/rake release` from the target branch once the PR is merged.
+## Use a Consistent Coding Style
+I'm again borrowing these from [Facebook's Guidelines](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
 
-[chandler]: https://github.com/mattbrictson/chandler#2-configure-credentials
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/activeadmin
-[new issue]: https://github.com/activeadmin/activeadmin/issues/new
-[fork Active Admin]: https://help.github.com/articles/fork-a-repo
-[make a pull request]: https://help.github.com/articles/creating-a-pull-request
-[git rebasing]: http://git-scm.com/book/en/Git-Branching-Rebasing
-[interactive rebase]: https://help.github.com/en/github/using-git/about-git-rebase
-[shortcut reference links]: https://github.github.com/gfm/#shortcut-reference-link
-[Rollup]: https://rollupjs.org/guide/en/#quick-start
-[Yarn]: https://yarnpkg.com/en/docs/install
-[Node.js]: https://nodejs.org/en/
+* 2 spaces for indentation rather than tabs
+* You can try running `npm run lint` for style unification
+
+## License
+By contributing, you agree that your contributions will be licensed under its MIT License.
+
+## References
+This document was adapted from the open-source contribution guidelines for [Facebook's Draft](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
