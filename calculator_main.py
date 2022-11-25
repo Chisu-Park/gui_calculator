@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import *
-#브랜치 GUI-수정-및-개선
+
 class Main(QDialog):
     def __init__(self):
         super().__init__()
