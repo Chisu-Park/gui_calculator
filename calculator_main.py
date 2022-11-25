@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import *
-
+#브랜치 계산기-기능-추가
 class Main(QDialog):
     def __init__(self):
         super().__init__()
