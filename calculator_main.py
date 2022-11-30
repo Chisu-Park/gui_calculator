@@ -107,24 +107,86 @@ class Main(QDialog):
     #################
     ### functions ###
     #################
+    
+    ### 연산에 필요한 임시 값과 연산자를 global 변수로 저장 : 아래 함수 내에서 해당 값에 접근하도록 함
+    global temp_val
+    temp_val = 0
+    
+    global temp_op
+    temp_op = ""
+
+    ### 0~9까지의 숫자와 소숫점 .을 추가시키는 함수. 이미 소숫점이 화면에 적혀있으면 중복해 적히지 않도록 설정
     def number_button_clicked(self, num):
         equation = self.equation.text()
+        if num == "." and num in equation : return
         equation += str(num)
         self.equation.setText(equation)
 
+    ### +, -, *, /, % 5가지 사칙연산. 현재 값을 temp_val에, 연산자를 temp_op에 저장
     def button_operation_clicked(self, operation):
-        equation = self.equation.text()
-        equation += operation
-        self.equation.setText(equation)
-
-    def button_equal_clicked(self):
-        equation = self.equation.text()
-        solution = eval(equation)
-        self.solution.setText(str(solution))
-
-    def button_clear_clicked(self):
+        global temp_val
+        temp_val = float(self.equation.text())
+        global temp_op
+        temp_op = operation
         self.equation.setText("")
-        self.solution.setText("")
+
+    ### 1/x 곱셈역수 설정. 여기부터 +/- 덧셈역수 설정까지의 4개 함수는 현재 화면에 숫자가 있는지의 여부를 따짐
+    def button_reverse_clicked(self) :
+        equation = self.equation.text()
+        if equation != "" :
+            equation = str(1/float(self.equation.text()))
+            self.equation.setText(equation)
+
+    ### x^2 제곱 설정
+    def button_power_clicked(self) :
+        equation = self.equation.text()
+        if equation != "" :
+            equation = str(float(self.equation.text()) ** 2)
+            self.equation.setText(equation)
+
+    ### x^.5 제곱근 설정
+    def button_root_clicked(self) :
+        equation = self.equation.text()
+        if equation != "" :
+            equation = str(float(self.equation.text()) ** 0.5)
+            self.equation.setText(equation)
+
+    ### +/- 덧셈역수 설정
+    def button_plinus_clicked(self) :
+        equation = self.equation.text()
+        if equation != "" :
+            if float(equation) < 0:
+                self.equation.setText(equation[1:])
+            else :
+                self.equation.setText("-" + equation)
+
+    ### 등호 =를 누르면, 연산자 temp_op에 저장된 연산자에 따라 서로 다른 연산을 수행한 후 temp_val, temp_op를 초기화
+    def button_equal_clicked(self):
+        global temp_val
+        global temp_op
+        if temp_op == "" :
+            equation = self.equation.text()
+        elif temp_op == "+" :
+            equation = str(temp_val + float(self.equation.text()))
+        elif temp_op == "-" :
+            equation = str(temp_val - float(self.equation.text()))
+        elif temp_op == "*" :
+            equation = str(temp_val * float(self.equation.text()))
+        elif temp_op == "/" :
+            equation = str(temp_val / float(self.equation.text()))
+        elif temp_op == "%" :
+            equation = str(temp_val % float(self.equation.text()))
+        self.equation.setText(equation)
+        temp_val = 0
+        temp_op = ""
+
+    ### 클리어 C, CE는 화면 내 정보 및 temp_val, temp_op를 모두 초기화
+    def button_clear_clicked(self):
+        global temp_val
+        temp_val = 0
+        global temp_op
+        temp_op = ""
+        self.equation.setText("")
 
     def button_backspace_clicked(self):
         equation = self.equation.text()
