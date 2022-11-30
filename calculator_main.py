@@ -46,9 +46,9 @@ class Main(QDialog):
 
         ### 추가연산 버튼을 클릭했을 때, 각 사칙연산 부호가 수식창에 추가될 수 있도록 시그널 설정
         button_mod.clicked.connect(lambda state, operation = "%": self.button_operation_clicked(operation))
-        button_reverse.clicked.connect(lambda state, operation = "1/x": self.button_operation_clicked(operation))
-        button_power.clicked.connect(lambda state, operation = "x^2": self.button_operation_clicked(operation))
-        button_root.clicked.connect(lambda state, operation = "x^.5": self.button_operation_clicked(operation))
+        button_reverse.clicked.connect(self.button_reverse_clicked)
+        button_power.clicked.connect(self.button_power_clicked)
+        button_root.clicked.connect(self.button_root_clicked)
 
         ### 추가연산 버튼을 layout_operation 레이아웃에 추가
         layout_number.addWidget(button_mod, 0, 0)
@@ -93,7 +93,7 @@ class Main(QDialog):
         layout_number.addWidget(button_dot, 5, 2)
 
         button_plinus = QPushButton("+/-")
-        button_plinus.clicked.connect(lambda state, num = "+/-": self.button_operation_clicked(operation))
+        button_plinus.clicked.connect(self.button_plinus_clicked)
         layout_number.addWidget(button_plinus, 5, 0)
 
         ### 각 레이아웃을 main_layout 레이아웃에 추가
